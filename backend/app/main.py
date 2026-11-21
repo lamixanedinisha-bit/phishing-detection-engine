@@ -1,10 +1,10 @@
-"""Phishing Detection Engine — rebuilt portfolio version.
+"""Phishing Detection Engine — Dinisha Lamichhane's capstone project.
 
 Trains a TF-IDF (character n-gram) + Logistic Regression classifier at
 startup on the small illustrative labelled set in data/sample_urls.csv.
 
-This is a rebuild from the capstone presentation, NOT the original
-submitted code. See README.md for the accuracy and provenance warnings.
+Portfolio version recreated from my university project work — original
+files are no longer accessible after my student email closed. See README.md.
 """
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_PATH = BASE_DIR / "data" / "sample_urls.csv"
 FRONTEND_DIR = BASE_DIR / "frontend"
 
-MODEL_NAME = "tfidf-char-3-5 + LogisticRegression (rebuilt, illustrative data)"
+MODEL_NAME = "tfidf-char-3-5 + LogisticRegression (portfolio version, illustrative data)"
 
 
 def load_training_data(path: Path = DATA_PATH):
@@ -58,11 +58,11 @@ def build_model() -> Pipeline:
 model = build_model()
 
 app = FastAPI(
-    title="Phishing Detection Engine (rebuilt portfolio version)",
+    title="Phishing Detection Engine",
     description=(
         "Classifies a URL as benign or malicious. "
-        "Rebuilt from the capstone presentation; trained on a small "
-        "illustrative dataset. Not the original submitted code."
+        "My capstone project, recreated as a portfolio version; trained on a small "
+        "illustrative dataset."
     ),
 )
 

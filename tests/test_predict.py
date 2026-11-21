@@ -1,7 +1,7 @@
-"""Tests for the rebuilt phishing-detection engine.
+"""Tests for the phishing-detection engine.
 
-These test the rebuilt demo model on illustrative examples only.
-They do not reproduce the original capstone evaluation.
+These test the demo model on illustrative examples only.
+They do not reproduce the capstone evaluation.
 """
 from fastapi.testclient import TestClient
 
