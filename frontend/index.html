@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phishing Detection Engine — rebuilt portfolio demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    input { width: 100%; padding: 0.6rem; font-size: 1rem; }
+    button { padding: 0.6rem 1rem; font-size: 1rem; margin-top: 0.5rem; cursor: pointer; }
+    .result { margin-top: 1rem; padding: 1rem; border: 1px solid #ccc; border-radius: 8px; }
+    .benign { border-color: green; } .malicious { border-color: red; }
+    .note { color: #555; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>Phishing Detection Engine</h1>
+  <p><strong>Rebuilt portfolio version</strong> — recreated from the capstone presentation.
+  Original uni code is no longer accessible (student email closed).
+  Trained on a small illustrative dataset; demo only, not a security product.</p>
+  <form id="form">
+    <label for="url">URL to check</label>
+    <input id="url" type="url" placeholder="https://www.google.com" value="https://www.google.com" required>
+    <button type="submit">Check URL</button>
+  </form>
+  <div id="out" class="result" hidden></div>
+  <p class="note">Try a benign URL (google.com, github.com) and a suspicious-looking one
+  (e.g. https://secure-login-verify-account-free-prize.com). The model was trained on
+  illustrative examples, so treat every result as a demonstration.</p>
+  <script>
+    document.getElementById('form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const url = document.getElementById('url').value;
+      const out = document.getElementById('out');
+      out.hidden = false; out.textContent = 'Checking…';
+      try {
+        const res = await fetch('/predict', { method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url }) });
+        const data = await res.json();
+        out.className = 'result ' + data.prediction;
+        out.innerHTML = '<strong>' + data.prediction + '</strong> — confidence ' +
+          data.confidence + '<br><span class="note">' + data.url + '</span>';
+      } catch (err) {
+        out.textContent = 'Error: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
