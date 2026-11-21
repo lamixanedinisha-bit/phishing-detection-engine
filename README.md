@@ -14,6 +14,8 @@ A small end-to-end web app that classifies a URL as **benign** or **malicious** 
 
 I built this with a team of 6 (Group 2), supervised by Prof. Javad Rezazadeh.
 
+My contribution: project planning, front-end development, testing, research, and the final presentation. Our team of 6 coordinated the work in Jira — dividing tasks, planning sprints and tracking progress.
+
 ## Accuracy
 
 My capstone reported **99%+ accuracy** in its final presentation. I state it conservatively as 99%+ because the presentation decks recorded different dataset sizes, so I don't claim a precise figure or a 1.00 test accuracy.

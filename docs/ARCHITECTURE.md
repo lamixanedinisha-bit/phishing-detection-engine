@@ -12,6 +12,7 @@
 - **Planning:** Jira, Git / GitHub
 - **Reported in the final deck:** 99%+ accuracy — see README.md.
 - **Team:** Group 2, team of 6, supervisor Prof. Javad Rezazadeh.
+- **My contribution:** project planning, front-end development, testing, research, and the final presentation. Our team of 6 coordinated the work in Jira — dividing tasks, planning sprints and tracking progress.
 
 ## This portfolio version (this repo)
 
